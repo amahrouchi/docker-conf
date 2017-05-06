@@ -1,0 +1,2 @@
+# Ignore Docker files and directories used for the build
+.DS_Store

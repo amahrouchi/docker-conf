@@ -1,0 +1,23 @@
+apache_web:
+  build: .
+  container_name: apache_web
+  ports:
+    - "8080:80"
+    - "8022:22"
+    - "8443:443"
+  links:
+    - mysql_db
+  volumes:
+    - ./app:/var/www/app
+  command: /usr/sbin/apache2ctl -DFOREGROUND
+
+mysql_db:
+  image: "mysql:5.5"
+  container_name: mysql_db
+  ports:
+    - 33306:3306
+  volumes:
+    - ./mysql:/etc/mysql/conf.d
+  environment:
+    MYSQL_ROOT_PASSWORD: solaris8
+    MYSQL_DATABASE: apolo
