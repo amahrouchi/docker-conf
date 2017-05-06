@@ -1,0 +1,1 @@
+Rename the curretn folder to `app` and put the PHP files here
