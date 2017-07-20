@@ -25,6 +25,6 @@ The port setup for the communication with xDebug is 9001 here.
   - IDE Key to `PHPSTORM`
   - Host to the IP address of your docker network interface (use `ifconfig` to get this info)
   - Port to `9001`
-- Start listening to for PHP debug connections.
+- Start listening for PHP debug connections.
 
 It should work.
