@@ -37,7 +37,6 @@ RUN a2enmod rewrite
 
 # PHP configuration
 COPY ./php/php.ini /etc/php/7.1/apache2
-RUN phpdismod xdebug
 
 EXPOSE 80 22 443
 
