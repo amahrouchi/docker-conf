@@ -22,5 +22,7 @@ services:
     volumes:
       - ./mysql:/etc/mysql/conf.d
     environment:
-      MYSQL_ROOT_PASSWORD: your_root_password_here
-      MYSQL_DATABASE: your_db_name_here
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user_password
