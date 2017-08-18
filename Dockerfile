@@ -34,6 +34,7 @@ RUN rm /etc/apache2/sites-enabled/*
 COPY ./vhosts/*.conf /etc/apache2/sites-available
 RUN a2ensite site.conf
 RUN a2enmod rewrite
+RUN a2enmod headers
 
 # PHP configuration
 COPY ./php/php.ini /etc/php/7.1/apache2
