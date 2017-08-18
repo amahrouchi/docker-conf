@@ -12,7 +12,7 @@ services:
       - db
     volumes:
       - ./app:/var/www/app
-    command: /usr/sbin/apache2ctl -DFOREGROUND
+    command: /usr/sbin/apache2ctl -DFOREGROUND -k start
 
   db:
     image: "mysql:5.5"
