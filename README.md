@@ -28,3 +28,13 @@ The port setup for the communication with xDebug is 9001 here.
 - Start listening for PHP debug connections.
 
 It should work.
+
+## Troubleshooting
+
+Sometimes the `apache_web` service may not start saying something like this: `httpd is already running`. To fix this you will have to rebuild and restart this container:
+
+```bash
+docker-compose stop apache_web
+docker-compose build apache_web
+docker-compose up -d --no-deps apache_web
+``` 
