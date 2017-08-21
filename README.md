@@ -21,7 +21,7 @@ At the end of the file `php/php.ini`, you will find the xDebug configuration.
 The port setup for the communication with xDebug is 9001 here.
 
 - So in the PHPStorm configuration interface go to `Languages & Frameworks > PHP > Debug` and set the debug port to 9001.
-- Then go to `Languages & Frameworks > PHP > Debug > DBGp Proxy`, set
+- Then go to `Languages & Frameworks > PHP > Debug > DBGp Proxy`, set:
   - IDE Key to `PHPSTORM`
   - Host to the IP address of your docker network interface (use `ifconfig` to get this info)
   - Port to `9001`
@@ -30,6 +30,8 @@ The port setup for the communication with xDebug is 9001 here.
 It should work.
 
 ## Troubleshooting
+
+### Apache not starting
 
 Sometimes the `apache_web` service may not start saying something like this: `httpd is already running`. To fix this you will have to rebuild and restart this container:
 
