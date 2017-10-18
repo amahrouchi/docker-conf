@@ -25,7 +25,7 @@ RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-d
     && chmod +x /usr/local/bin/composer
 
 # Install tools
-RUN apt-get install -y vim git
+RUN apt-get install -y vim git sendmail
 RUN apt-get install -y icu-devtools icu-doc libicu-dev
 RUN apt-get install -y iputils-ping
 
