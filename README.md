@@ -40,3 +40,17 @@ docker-compose stop apache_web
 docker-compose build apache_web
 docker-compose up -d --no-deps apache_web
 ``` 
+
+### PHP7 extension directory
+
+If using PHP 7+, you may need to update the `extension_dir` value in your `php.ini` file.
+
+I had to change from:
+```
+extension_dir = "/usr/lib/php/20131226"
+```
+to:
+```
+extension_dir = "/usr/lib/php/20160303"
+```
+
