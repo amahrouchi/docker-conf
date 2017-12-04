@@ -14,6 +14,11 @@ http://localhost:8001
 
 If everything is fine, your browser should display the success message `It works!`.
 
+The PHPMyAdmin interface can be found at this URL:
+```
+http://localhost:8080
+```
+
 ## PHPStorm configuration for xDebug
 
 At the end of the file `php/php.ini`, you will find the xDebug configuration.
