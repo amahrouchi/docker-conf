@@ -1,6 +1,8 @@
 version: '2'
 
 services:
+
+  # Apache 2.4
   web:
     build: .
     container_name: web
@@ -14,8 +16,9 @@ services:
       - ./app:/var/www/app
     command: /usr/sbin/apache2ctl -DFOREGROUND -k start
 
+  # MariaDB 10.3
   db:
-    image: "mysql:5.5"
+    image: "mariadb:10.3"
     container_name: db
     ports:
       - 8306:3306
@@ -26,3 +29,17 @@ services:
       MYSQL_DATABASE: db_name
       MYSQL_USER: db_user
       MYSQL_PASSWORD: db_user_password
+      
+  # PHPMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: db_user
+      PMA_PASSWORD: db_user_password
+    ports:
+      - '8080:80'
