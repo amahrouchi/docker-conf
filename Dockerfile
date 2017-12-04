@@ -31,7 +31,7 @@ RUN apt-get install -y iputils-ping
 
 # Apache configuration
 RUN rm /etc/apache2/sites-enabled/*
-COPY ./vhosts/*.conf /etc/apache2/sites-available
+COPY ./vhosts/*.conf /etc/apache2/sites-available/
 RUN a2ensite site.conf
 RUN a2enmod rewrite
 RUN a2enmod headers
