@@ -38,6 +38,7 @@ RUN a2enmod headers
 
 # PHP configuration
 COPY ./php/php.ini /etc/php/7.1/apache2
+COPY ./php/php.ini /etc/php/7.1/cli
 
 EXPOSE 80 22 443
 
