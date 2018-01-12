@@ -6,6 +6,9 @@ services:
   web:
     build: .
     container_name: web
+    environment:
+      XDEBUG_CONFIG: "remote_host=172.17.0.1"
+      PHP_IDE_CONFIG: "serverName=<Your debug server name inside PHPStorm>"
     ports:
       - "8001:80"
       - "8002:22"
