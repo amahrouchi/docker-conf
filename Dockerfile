@@ -20,6 +20,9 @@ RUN apt-get install  -y --allow-unauthenticated \
 	php7.1-phpdbg php7.1-recode php7.1-snmp php7.1-sybase \
 	php7.1-tidy php7.1-xdebug php7.1-xmlrpc php7.1-xsl php7.1-zip
 
+# Disable xdebug for cli
+# RUN phpdismod -v 7.1 -s cli xdebug
+
 # Install composer
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer
