@@ -34,6 +34,12 @@ The port setup for the communication with xDebug is 9001 here.
 
 It should work.
 
+## CLI debugging
+
+2 values may need to be changed:
+- php.ini: `xdebug.remote_host=172.17.0.1`. This is the IP adress of your docker network interface (same as above)
+- Dockerfile: `ENV PHP_IDE_CONFIG serverName=localhost`. This is the name of xdebug server in your PHPStorm config (`Languages & Frameworks > PHP > Servers > Name`)
+
 ## Troubleshooting
 
 ### Apache not starting
