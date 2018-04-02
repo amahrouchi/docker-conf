@@ -43,6 +43,9 @@ RUN a2enmod headers
 COPY ./php/php.ini /etc/php/7.1/apache2
 COPY ./php/php.ini /etc/php/7.1/cli
 
+# Server name for CLI debugging (xDebug)
+ENV PHP_IDE_CONFIG serverName=localhost
+
 EXPOSE 80 22 443
 
 # CMD ["/bin/bash"]
