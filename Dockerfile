@@ -28,16 +28,17 @@ RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-d
     && chmod +x /usr/local/bin/composer
 
 # Install tools
-RUN apt-get install -y vim git sendmail
-RUN apt-get install -y icu-devtools icu-doc libicu-dev
-RUN apt-get install -y iputils-ping
+RUN apt-get install -y vim git sendmail icu-devtools icu-doc libicu-dev iputils-ping
 
 # Apache configuration
 RUN rm /etc/apache2/sites-enabled/*
 COPY ./vhosts/*.conf /etc/apache2/sites-available/
 RUN a2ensite site.conf
-RUN a2enmod rewrite
-RUN a2enmod headers
+RUN a2enmod rewrite headers ssl
+
+# SSL
+RUN mkdir /etc/apache2/ssl
+COPY vhosts/ssl/* /etc/apache2/ssl/
 
 # PHP configuration
 COPY ./php/php.ini /etc/php/7.1/apache2
@@ -46,6 +47,10 @@ COPY ./php/php.ini /etc/php/7.1/cli
 # Server name for CLI debugging (xDebug)
 ENV PHP_IDE_CONFIG serverName=localhost
 
+# Define the working directory
+WORKDIR /var/www/app
+
+# Ports to expose
 EXPOSE 80 22 443
 
 # CMD ["/bin/bash"]
