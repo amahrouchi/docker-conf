@@ -20,6 +20,15 @@ RUN apt-get install  -y --allow-unauthenticated \
 	php7.2-phpdbg php7.2-recode php7.2-snmp php7.2-sybase \
 	php7.2-tidy php7.2-xdebug php7.2-xmlrpc php7.2-xsl php7.2-zip
 
+# Install Mcrypt through PECL (for PHP versions below 7.1 just install php7.x-mcrypt)
+# RUN apt-get -y php7.1-mcrypt
+RUN apt-get -y install gcc make autoconf libc-dev pkg-config
+RUN apt-get -y install php7.2-dev
+RUN apt-get -y install libmcrypt-dev
+RUN pecl install mcrypt-1.0.1
+RUN bash -c "echo extension=/usr/lib/php/20170718/mcrypt.so > /etc/php/7.2/cli/conf.d/mcrypt.ini"
+RUN bash -c "echo extension=/usr/lib/php/20170718/mcrypt.so > /etc/php/7.2/apache2/conf.d/mcrypt.ini"
+
 # Disable xdebug for cli
 # RUN phpdismod -v 7.2 -s cli xdebug
 
