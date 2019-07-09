@@ -17,7 +17,6 @@ services:
       - db
     volumes:
       - ./app:/var/www/app
-    command: /usr/sbin/apache2ctl -DFOREGROUND -k start
 
   # MariaDB 10.3
   db:
