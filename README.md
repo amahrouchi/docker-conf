@@ -12,7 +12,7 @@ Then the server will be accessible at the url:
 http://localhost:8001
 ```
 
-If everything is fine, your browser should display the success message `It works!`.
+If everything is fine, your browser should display a `phpinfo()` page.
 
 The PHPMyAdmin interface can be found at this URL:
 ```
@@ -38,7 +38,7 @@ It should work.
 
 2 values may need to be changed:
 - php.ini: `xdebug.remote_host=172.17.0.1`. This is the IP adress of your docker network interface (same as above)
-- Dockerfile: `ENV PHP_IDE_CONFIG serverName=localhost`. This is the name of xdebug server in your PHPStorm config (`Languages & Frameworks > PHP > Servers > Name`)
+- Dockerfile: `ENV PHP_IDE_CONFIG serverName=localhost`. This is the name of the xdebug server in your PHPStorm config (`Languages & Frameworks > PHP > Servers > Name`)
 
 ## Troubleshooting
 
@@ -51,17 +51,3 @@ docker-compose stop apache_web
 docker-compose build apache_web
 docker-compose up -d --no-deps apache_web
 ``` 
-
-### PHP7 extension directory
-
-If using PHP 7+, you may need to update the `extension_dir` value in your `php.ini` file.
-
-I had to change from:
-```
-extension_dir = "/usr/lib/php/20131226"
-```
-to:
-```
-extension_dir = "/usr/lib/php/20160303"
-```
-
