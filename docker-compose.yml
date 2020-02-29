@@ -19,9 +19,9 @@ services:
       - ./app:/var/www/app
 
   # MariaDB 10.4
-  db:
+  mariadb:
     image: "mariadb:10.4"
-    container_name: db
+    container_name: mariadb
     ports:
       - 8306:3306
     volumes:
