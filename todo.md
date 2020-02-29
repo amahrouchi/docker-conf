@@ -8,7 +8,8 @@
     - Image `mariadb:10.4`
     - Prévoir la persitence des données en cas de suppression du conteneur
     - Username (app_user), mot de passe (random string) et nom de DB (app_database)
+- Prévoir un service node pour compiler les assets 
 - PHPMyAdmin :
     - osef
-- SSL avec Let's encrypt
+- SSL avec Let's encrypt (lire le SerVerName dans le vhost)
 - Update the readme file 
