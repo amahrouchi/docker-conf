@@ -10,3 +10,4 @@
     - Username (app_user), mot de passe (random string) et nom de DB (app_database)
 - PHPMyAdmin :
     - osef
+- SSL avec Let's encrypt
