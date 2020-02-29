@@ -18,30 +18,16 @@ services:
     volumes:
       - ./app:/var/www/app
 
-  # MariaDB 10.3
+  # MariaDB 10.4
   db:
-    image: "mariadb:10.3"
+    image: "mariadb:10.4"
     container_name: db
     ports:
       - 8306:3306
     volumes:
       - ./mysql/data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: db_name
-      MYSQL_USER: db_user
-      MYSQL_PASSWORD: db_user_password
-      
-  # PHPMyAdmin
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
-    links:
-      - db
-    environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-      PMA_USER: db_user
-      PMA_PASSWORD: db_user_password
-    ports:
-      - '8080:80'
+      MYSQL_ROOT_PASSWORD: TzDbR6hiYEGxzoOvVycg
+      MYSQL_DATABASE: app_database
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: GEAuqLFIqpqrN5yGOowZ
