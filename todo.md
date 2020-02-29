@@ -12,4 +12,5 @@
 - PHPMyAdmin :
     - osef
 - SSL avec Let's encrypt (lire le SerVerName dans le vhost)
-- Update the readme file 
+- Mettre a jour le readme
+    - Ajouter les etapes pour pour passer en mode production 
