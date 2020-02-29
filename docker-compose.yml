@@ -16,6 +16,7 @@ services:
     volumes:
       - ./app:/var/www/html
       - ./vhosts:/etc/apache2/sites-enabled
+      - ./php:/usr/local/etc/php
 
   # MariaDB 10.4
   mariadb:
