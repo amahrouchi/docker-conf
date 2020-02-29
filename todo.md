@@ -11,3 +11,4 @@
 - PHPMyAdmin :
     - osef
 - SSL avec Let's encrypt
+- Update the readme file 
