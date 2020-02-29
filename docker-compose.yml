@@ -1,23 +1,32 @@
 version: '3'
 
 services:
-  # PHP 7.4, Apache
-  apache-php:
-    build: './php/'
-    container_name: apache-php
-    environment:
-      XDEBUG_CONFIG: "remote_host=172.17.0.1"
-      PHP_IDE_CONFIG: "serverName=<Your debug Server name inside PHPStorm>"
+  # Apache 2.4
+  apache:
+    build: './apache/'
+    container_name: apache
     ports:
       - "80:80"
       - "443:443"
     depends_on:
       - mariadb
+      - php
     networks:
       - main
     volumes:
       - ./app:/var/www/html
-      - ./vhosts:/etc/apache2/sites-enabled
+#      - ./apache/vhosts:/etc/apache2/sites-enabled
+
+  # PHP 7.4 FPM
+  php:
+    build: './php/'
+    container_name: php
+    environment:
+      XDEBUG_CONFIG: "remote_host=172.17.0.1"
+      PHP_IDE_CONFIG: "serverName=<Your debug Server name inside PHPStorm>"
+    networks:
+      - main
+    volumes:
       - ./php/ini:/usr/local/etc/php
 
   # MariaDB 10.4

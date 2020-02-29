@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:7.4-fpm
 
 RUN apt-get update --fix-missing && apt dist-upgrade
 
@@ -11,5 +11,3 @@ RUN docker-php-ext-enable xdebug
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN a2enmod rewrite
