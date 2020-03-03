@@ -3,9 +3,9 @@ FROM php:7.4-fpm
 RUN apt-get update --fix-missing && apt dist-upgrade
 
 # PHP extensions
-RUN docker-php-ext-install bcmath
+RUN docker-php-ext-install bcmath pdo pdo_mysql
 
-# Xdebug
+# Xdebug (remove this blockfor production environments)
 RUN pecl install xdebug-2.9.2
 RUN docker-php-ext-enable xdebug
 COPY ini/xdebug.ini /usr/local/etc/php/conf.d/
