@@ -15,7 +15,6 @@ services:
       - main
     volumes:
       - ./app:/var/www/html
-#      - ./apache/vhosts:/etc/apache2/sites-enabled
 
   # PHP 7.4 FPM
   php:
