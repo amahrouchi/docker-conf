@@ -38,6 +38,10 @@ A few modifications need to be done regarding the `php` service:
 docker-compose up -d --build
 ```
 
+## Node.js service
+
+This service is here because I personaly use `Gulp` to compile assets. So it felt logic to prepare a service to do so.
+
 ## PHPStorm configuration for xDebug
 
 You can find the xDebug configuration in the file `./php/ini/xdebug.ini`.
