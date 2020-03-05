@@ -4,6 +4,9 @@ FROM httpd:2.4
 RUN apt-get update --fix-missing && apt dist-upgrade
 RUN apt-get install -y software-properties-common vim git iputils-ping
 
+# Let's Encrypt - Cerbot
+RUN apt-get install -y certbot python-certbot-apache
+
 # Apache configuration
 COPY app-vhosts.conf /usr/local/apache2/conf/extra/
 RUN echo "LoadModule deflate_module /usr/local/apache2/modules/mod_deflate.so" >> /usr/local/apache2/conf/httpd.conf
