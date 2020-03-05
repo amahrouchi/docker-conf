@@ -15,6 +15,7 @@ services:
       - main
     volumes:
       - ./app:/var/www/html
+      - ./apache/ssl:/etc/apache2/ssl
 
   # PHP 7.4 FPM
   php:
