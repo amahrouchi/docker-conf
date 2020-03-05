@@ -1,13 +1,4 @@
-- Apache : 
-    - Installer les extensions PHP pour y faire tourner un Laravel/Symfony
-        - prod : activer `opcache`, ne pas activer `xdebug`
-        - dev : activer et faire fonctionner `xdebug` avec PHPStorm
-- MariaDB :
-    - Image `mariadb:10.4`
-    - Prévoir la persitence des données en cas de suppression du conteneur (via un volume)
 - Prévoir un service node pour compiler les assets 
-- PHPMyAdmin :
-    - osef
 - SSL avec Let's encrypt (lire le SerVerName dans le vhost)
 - Mettre a jour le readme
-    - Ajouter les etapes pour pour passer en mode production 
+    - Ajouter les etapes pour pour passer en mode dev 
