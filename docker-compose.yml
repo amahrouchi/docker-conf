@@ -28,6 +28,15 @@ services:
     volumes:
       - ./app:/var/www/html
 
+  node:
+    build: './node/'
+    container_name: node
+    networks:
+      - main
+    volumes:
+      - ./app:/home/node/app
+    tty: true
+
   # MariaDB 10.4
   mariadb:
     image: "mariadb:10.4"
@@ -43,6 +52,7 @@ services:
       MYSQL_PASSWORD: GEAuqLFIqpqrN5yGOowZ
     networks:
       - main
+
 
 networks:
   main:
