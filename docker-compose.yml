@@ -1,47 +1,59 @@
 version: '3'
 
 services:
-
   # Apache 2.4
-  web:
-    build: .
-    container_name: web
-    environment:
-      XDEBUG_CONFIG: "remote_host=172.17.0.1"
-      PHP_IDE_CONFIG: "serverName=<Your debug Server name inside PHPStorm>"
+  apache:
+    build: './apache/'
+    container_name: apache
     ports:
-      - "8001:80"
-      - "8002:22"
-      - "8003:443"
-    links:
-      - db
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - mariadb
+      - php
+    networks:
+      - main
     volumes:
-      - ./app:/var/www/app
+      - ./app:/var/www/html
+      - ./apache/ssl:/etc/apache2/ssl
 
-  # MariaDB 10.3
-  db:
-    image: "mariadb:10.3"
-    container_name: db
+  # PHP 7.4 FPM
+  php:
+    build: './php/'
+    container_name: php
+    #environment:
+    #  XDEBUG_CONFIG: "remote_host=172.17.0.1"
+    #  PHP_IDE_CONFIG: "serverName=localhost"
+    networks:
+      - main
+    volumes:
+      - ./app:/var/www/html
+
+  # Node.js
+  node:
+    build: './node/'
+    container_name: node
+    networks:
+      - main
+    volumes:
+      - ./app:/home/node/app
+    tty: true
+
+  # MariaDB 10.4
+  mariadb:
+    image: "mariadb:10.4"
+    container_name: mariadb
     ports:
-      - 8306:3306
+      - 3306:3306
     volumes:
       - ./mysql/data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: db_name
-      MYSQL_USER: db_user
-      MYSQL_PASSWORD: db_user_password
-      
-  # PHPMyAdmin
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
-    links:
-      - db
-    environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-      PMA_USER: db_user
-      PMA_PASSWORD: db_user_password
-    ports:
-      - '8080:80'
+      MYSQL_ROOT_PASSWORD: TzDbR6hiYEGxzoOvVycg
+      MYSQL_DATABASE: app_database
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: GEAuqLFIqpqrN5yGOowZ
+    networks:
+      - main
+
+networks:
+  main:
