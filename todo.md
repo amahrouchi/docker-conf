@@ -1,4 +1,2 @@
-- Prévoir un service node pour compiler les assets 
-- SSL avec Let's encrypt (lire le SerVerName dans le vhost)
 - Mettre a jour le readme
     - Ajouter les etapes pour pour passer en mode dev 
