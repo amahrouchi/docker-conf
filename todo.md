@@ -1,2 +1,0 @@
-- Mettre a jour le readme
-    - Ajouter les etapes pour pour passer en mode dev 
