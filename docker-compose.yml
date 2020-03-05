@@ -28,6 +28,7 @@ services:
     volumes:
       - ./app:/var/www/html
 
+  # Node.js
   node:
     build: './node/'
     container_name: node
@@ -52,7 +53,6 @@ services:
       MYSQL_PASSWORD: GEAuqLFIqpqrN5yGOowZ
     networks:
       - main
-
 
 networks:
   main:
