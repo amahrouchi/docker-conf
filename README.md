@@ -40,7 +40,15 @@ docker-compose up -d --build
 
 ## Node.js service
 
-This service is here because I personaly use `Gulp` to compile assets. So it felt logic to prepare a service to do so.
+This service is here because I personaly use `Gulp` to compile assets.
+
+So if you have a `package.json` and a `gulpfile.js` file at the root of your project, everything is ready to execute your Gulp tasks.
+
+You can simply do something like this :
+```
+> docker exec -it node npm i
+> docker exec -it node ./node_modules/.bin/gulp
+```
 
 ## PHPStorm configuration for xDebug
 
