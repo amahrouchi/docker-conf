@@ -1,13 +1,10 @@
 - Apache : 
-    - Image `php:7.4-apache`
     - Installer les extensions PHP pour y faire tourner un Laravel/Symfony
-        - prévoir un fichier `php.ini` dev et prod
         - prod : activer `opcache`, ne pas activer `xdebug`
         - dev : activer et faire fonctionner `xdebug` avec PHPStorm
 - MariaDB :
     - Image `mariadb:10.4`
-    - Prévoir la persitence des données en cas de suppression du conteneur
-    - Username (app_user), mot de passe (random string) et nom de DB (app_database)
+    - Prévoir la persitence des données en cas de suppression du conteneur (via un volume)
 - Prévoir un service node pour compiler les assets 
 - PHPMyAdmin :
     - osef
