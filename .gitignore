@@ -1,6 +1,6 @@
 .DS_Store
 /.idea
-/mysql
+/mariadb
 /laravel
 /symfony
 /app/node_modules

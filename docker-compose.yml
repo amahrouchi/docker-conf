@@ -46,7 +46,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./mysql/data:/var/lib/mysql
+      - ./mariadb/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: TzDbR6hiYEGxzoOvVycg
       MYSQL_DATABASE: app_database
