@@ -29,10 +29,10 @@ docker-compose up -d --build
 A few modifications need to be done regarding the `php` service:
 - `./php/Dockerfile`: 
     - Uncomment the lines related to the xDebug installation
-    - Comment the line loading the production php.ini file
-    - Uncomment the line loading the development php.ini file
+    - Comment the line loading the production `php.ini` file
+    - Uncomment the line loading the development `php.ini` file
 - `./docker-compose.yml`:
-    - Uncomment the environment variables declaration
+    - `php` service: uncomment the environment variables declaration
 - Rebuild the `php` service with:
 ```
 docker-compose up -d --build
