@@ -25,6 +25,29 @@ To activate it, you just have to uncomment the 2nd vhost of the file `./apache/a
 docker-compose up -d --build
 ```
 
+## Service: using `systemd` and `docker-compose`
+
+A `systemd` service configuration is available to launch the whole app as a service. You can find this config file here : `./systemd/app.service`
+
+Copy it to the `systemd` service folder:
+```bash
+sudo cp systemd/app.service /etc/systemd/system/
+```
+
+**N.B.:** You may need to change the `WorkingDirectory` value depending on your app location on your server.
+
+You can start and stop the service by running:
+```bash
+sudo systemctl start app
+sudo systemctl stop app
+```
+
+To launch it on startup run:
+```bash
+sudo systemctl enable app
+```
+
+
 ## Development environment
 A few modifications need to be done regarding the `php` service:
 - `./php/Dockerfile`: 

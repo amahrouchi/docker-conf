@@ -1,0 +1,22 @@
+# Source: https://gist.github.com/mosquito/b23e1c1e5723a7fd9e6568e5cf91180f
+[Unit]
+Description=LAMP service with docker-compose
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+
+WorkingDirectory=/etc/app
+
+# Shutdown containers
+ExecStartPre=/usr/local/bin/docker-compose down
+
+# Compose up
+ExecStart=/usr/local/bin/docker-compose up
+
+# Compose down, remove containers and volumes
+ExecStop=/usr/local/bin/docker-compose down
+
+[Install]
+WantedBy=multi-user.target
