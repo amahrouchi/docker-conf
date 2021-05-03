@@ -1,7 +1,7 @@
 FROM httpd:2.4
 
 # Install some tools
-RUN apt-get update --fix-missing && apt dist-upgrade
+RUN apt-get update --fix-missing && apt dist-upgrade -y
 RUN apt-get install -y software-properties-common vim git iputils-ping
 
 # Let's Encrypt - Cerbot

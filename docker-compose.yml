@@ -6,8 +6,8 @@ services:
     build: './apache/'
     container_name: apache
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+      - "8443:443"
     depends_on:
       - mariadb
       - php
@@ -39,12 +39,12 @@ services:
       - ./app:/home/node/app
     tty: true
 
-  # MariaDB 10.4
+  # MariaDB 10.5
   mariadb:
-    image: "mariadb:10.4"
+    image: "mariadb:10.5"
     container_name: mariadb
     ports:
-      - 3306:3306
+      - 33306:3306
     volumes:
       - ./mariadb/data:/var/lib/mysql
     environment:

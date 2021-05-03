@@ -1,6 +1,6 @@
-FROM php:7.4-fpm
+FROM php:8.0-fpm
 
-RUN apt-get update --fix-missing && apt dist-upgrade
+RUN apt-get update --fix-missing && apt dist-upgrade -y
 
 # Install some tools
 RUN apt-get install -y software-properties-common vim git iputils-ping zip libzip-dev unzip
