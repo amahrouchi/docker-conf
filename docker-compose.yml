@@ -4,7 +4,7 @@ services:
   # Apache 2.4
   apache:
     build: './apache/'
-    container_name: apache
+    container_name: appname-apache
     ports:
       - "8080:80"
       - "8443:443"
@@ -20,7 +20,7 @@ services:
   # PHP 7.4 FPM
   php:
     build: './php/'
-    container_name: php
+    container_name: appname-php
     #environment:
     #  XDEBUG_CONFIG: "remote_host=172.17.0.1"
     #  PHP_IDE_CONFIG: "serverName=localhost"
@@ -32,7 +32,7 @@ services:
   # Node.js
   node:
     build: './node/'
-    container_name: node
+    container_name: appname-node
     networks:
       - main
     volumes:
@@ -42,7 +42,7 @@ services:
   # MariaDB 10.5
   mariadb:
     image: "mariadb:10.5"
-    container_name: mariadb
+    container_name: appname-mariadb
     ports:
       - 33306:3306
     volumes:
